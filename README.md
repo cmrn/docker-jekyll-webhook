@@ -10,9 +10,9 @@
 To start `cmrn/jekyll-webhook` on port 80:
 
 ```sh
-docker run -d -p 80:80 \
-           -e REPO="https://github.com/cmrn/cameronmoon.com.git" \
-           -e WEBHOOK_SECRET="changeme" \
+docker run -d -p 80:80 \ 
+           -e REPO="https://github.com/cmrn/cameronmoon.com.git" \ 
+           -e WEBHOOK_SECRET="change me" \ 
            cmrn/jekyll-webhook
 ```
 
@@ -24,23 +24,21 @@ To set up the webhook in GitHub, go to your repository page, then go to Settings
 ## Configuration
 The image can be given the following configuration values as environment variables:
 
-| Name               | Type     | Default    | Description 
-|--------------------|----------|------------|-------------
-| `REPO`             | Required |            | The clone URL for your Jekyll repository. If your repository is private, this should also contain a username and password.
-| `WEBHOOK_SECRET`   | Required |            | The secret which authenticates genuine requests to the webhook. This should be a long, random secret shared only with GitHub.
-| `WEBHOOK_ENDPOINT` | Optional | `/webhook` | The endpoint for the webhook. Change this if you want to publish something at the URL `/webhook`.
-| `BRANCH`           | Optional | `master`   | The branch to use from your repository. Another popular value is `gh-pages`, used by GitHub Pages.
+- `REPO`: Required. The clone URL for your Jekyll repository. If your repository is private, this should also contain a username and password.
+- `WEBHOOK_SECRET`: Required. The secret which authenticates genuine requests to the webhook. This should be a long, random secret shared only with GitHub.
+- `WEBHOOK_ENDPOINT`: Optional, defaults to `/webhook`. The endpoint for the webhook. Change this if you want to publish something at the URL `/webhook`.
+- `BRANCH`: Optional, defaults to `master`. The branch to use from your repository. Another popular value is `gh-pages`, used by GitHub Pages.
 
 ### Advanced Configuration
 It's also possible to customise the nginx server configuration by linking in a new `site.conf` template. Save `site.conf` to your host machine, make your changes, and link it into your container:
 
-<pre>
+```sh
 docker run -d -p 80:80 \
-           <b>-v /path/to/your/site.conf:/site.conf \</b>
-           -e REPO="https://github.com/cmrn/cameronmoon.com.git" \
-           -e WEBHOOK_SECRET="changeme" \
+           -v /path/to/your/site.conf:/site.conf \ 
+           -e REPO="https://github.com/cmrn/cameronmoon.com.git" \ 
+           -e WEBHOOK_SECRET="change me" \ 
            cmrn/jekyll-webhook
-</pre>
+```
 
 ## Credits
 This project is a concoction of:
@@ -51,4 +49,4 @@ This project is a concoction of:
 - [github-webhook](https://www.npmjs.com/package/github-webhook) ([source](https://github.com/rvagg/github-webhook))
 
 ## License
-Permission to use, copy, modify, and/or distribute this software is given under the [ISC license](LICENSE).
+Permission to use, copy, modify, and/or distribute this software is given under the [ISC license](https://github.com/cmrn/docker-jekyll-webhook/blob/master/LICENSE).
