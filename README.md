@@ -9,10 +9,12 @@
 ### Step 1 - Docker
 To start `cmrn/jekyll-webhook` on port 80:
 
-    docker run -d -p 80:80 \
-               -e REPO="https://github.com/cmrn/cameronmoon.com.git" \
-               -e WEBHOOK_SECRET="changeme" \
-               cmrn/jekyll-webhook
+```sh
+docker run -d -p 80:80 \
+           -e REPO="https://github.com/cmrn/cameronmoon.com.git" \
+           -e WEBHOOK_SECRET="changeme" \
+           cmrn/jekyll-webhook
+```
 
 Set `WEBHOOK_SECRET` to variable to a long, random passphrase, and set `REPO` to the clone URL of your GitHub repository.
 
@@ -32,11 +34,13 @@ The image can be given the following configuration values as environment variabl
 ### Advanced Configuration
 It's also possible to customise the nginx server configuration by linking in a new `site.conf` template. Save `site.conf` to your host machine, make your changes, and link it into your container:
 
-    docker run -d -p 80:80 \
-               -v /path/to/your/site.conf:/site.conf \
-               -e REPO="https://github.com/cmrn/cameronmoon.com.git" \
-               -e WEBHOOK_SECRET="changeme" \
-               cmrn/jekyll-webhook
+<pre>
+docker run -d -p 80:80 \
+           <b>-v /path/to/your/site.conf:/site.conf \</b>
+           -e REPO="https://github.com/cmrn/cameronmoon.com.git" \
+           -e WEBHOOK_SECRET="changeme" \
+           cmrn/jekyll-webhook
+</pre>
 
 ## Credits
 This project is a concoction of:
