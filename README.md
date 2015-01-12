@@ -38,5 +38,13 @@ It's also possible to customise the nginx server configuration by linking in a n
                -e WEBHOOK_SECRET="changeme" \
                cmrn/jekyll-webhook
 
+## Credits
+This project is a concoction of:
+
+- [Docker](https://www.docker.com/) ([source](https://github.com/docker/docker))
+- [Jekyll](http://jekyllrb.com/) ([source](https://github.com/jekyll/jekyll))
+- [Nginx](http://wiki.nginx.org/) ([source](http://hg.nginx.org/nginx))
+- [github-webhook](https://www.npmjs.com/package/github-webhook) ([source](https://github.com/rvagg/github-webhook))
+
 ## License
 Permission to use, copy, modify, and/or distribute this software is given under the [ISC license](LICENSE).
