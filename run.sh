@@ -1,5 +1,5 @@
 #!/bin/bash
-export WEBHOOK_PATH=${WEBHOOK_PATH:-/webhook}
+export WEBHOOK_ENDPOINT=${WEBHOOK_ENDPOINT:-/webhook}
 export BRANCH=${BRANCH:-master}
 
 /pull.sh
