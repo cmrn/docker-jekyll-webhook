@@ -13,8 +13,8 @@ github-webhook \
 
 jekyll build --watch --source /source --destination /site &
 
-sed -i "s|\\\$WEBHOOK_ENDPOINT|$WEBHOOK_ENDPOINT|g" /site.conf
-mv /site.conf /etc/nginx/sites-available/default 
+sed "s|\\\$WEBHOOK_ENDPOINT|$WEBHOOK_ENDPOINT|g" /site.conf > /etc/nginx/sites-available/default
+
 nginx &
 
 wait
