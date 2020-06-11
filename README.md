@@ -1,3 +1,9 @@
+### Archived. ###
+
+For a maintained fork, see [`jibby0/docker-jekyll-webhook`](https://github.com/jibby0/docker-jekyll-webhook).
+
+---
+
 # cmrn/jekyll-webhook
 `cmrn/jekyll-webhook` is a docker image which:
 
